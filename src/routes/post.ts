@@ -7,10 +7,20 @@ import Post from '@src/schemas/post';
 const router = Router();
 
 router.get('/', async (req: Request, res: Response, next: NextFunction) => {
-  // 모든 포스트 배열로 전달
   try {
     const posts = await Post.find({});
     res.json(posts);
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+});
+
+router.get('/:id', async (req: Request, res: Response, next: NextFunction) => {
+  const id = req.params.id;
+  try {
+    const post = await Post.findById(id);
+    res.json(post);
   } catch (error) {
     console.log(error);
     next(error);
@@ -32,9 +42,10 @@ router.post('/', async (req: Request, res: Response, next: NextFunction) => {
 });
 
 router.delete('/:id', async (req: Request, res: Response, next: NextFunction) => {
+  const id = req.params.id;
   try {
-    const result = await Post.remove({
-      _id: req.params.id,
+    const result = await Post.deleteOne({
+      _id: id,
     });
     res.json(result);
   } catch (error) {
