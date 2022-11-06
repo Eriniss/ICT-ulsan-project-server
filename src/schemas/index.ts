@@ -5,9 +5,10 @@ const connect = () => {
   if (process.env.NODE_ENV !== 'production') {
     mongoose.set('debug', true);
   }
-  const username = encodeURIComponent('uouProject');
-  const password = encodeURIComponent(process.env.MONGO_PASSWORD !== undefined && process.env.MONGO_PASSWORD);
-  const uri = `mongodb+srv://${username}:${password}@cluster0.jv9pc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+  const username = encodeURIComponent('jhs2195');
+  const password = encodeURIComponent('Gmltjq70340!');
+  const uri = `mongodb+srv://${username}:${password}@simple-board-cluster.wfc7l.mongodb.net/test
+  `;
   mongoose.connect(uri, (error) => {
     if (error) {
       console.log('mongoDB connect error', error);
