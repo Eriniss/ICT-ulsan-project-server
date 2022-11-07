@@ -1,6 +1,3 @@
-// /post - GET, POST
-// /post:id - DELETE, UPDATE
-
 import { Request, Response, NextFunction, Router } from 'express';
 import Post from '@src/schemas/post';
 
