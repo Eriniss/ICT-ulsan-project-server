@@ -6,7 +6,7 @@ const connect = () => {
     mongoose.set('debug', true);
   }
   const username = encodeURIComponent('jhs2195');
-  const password = encodeURIComponent('Gmltjq70340!');
+  const password = encodeURIComponent('process.env.MONGO_PASSWORD !== undefined && process.env.MONGO_PASSWORD');
   const uri = `mongodb+srv://${username}:${password}@simple-board-cluster.wfc7l.mongodb.net/test
   `;
   mongoose.connect(uri, (error) => {
